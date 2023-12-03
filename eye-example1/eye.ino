@@ -16,7 +16,6 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 void setup() {
 
 
-   pinMode(8,INPUT_PULLUP);
 
 
 
@@ -37,11 +36,7 @@ void setup() {
   delay(3000); // Pause for 1.5 seconds
   display.clearDisplay();  // Clear the buffer
 }
-  unsigned char readkey(void){ 
-  unsigned char ret=0;
-    if (digitalRead(8)==0 ) ret=1;  //izquierda
-     return (ret);
-}
+
 void loop() {
 // Use Void Loop to display multipule images
 
@@ -99,11 +94,11 @@ void loop() {
   display.clearDisplay();  // Clear the buffer
 
 // Displays EYES_NIGHT on the screen
- // display.drawBitmap(0, 0, image_data_EYES_NIGHTarray, 128, 64, 1);
-  //display.display();
+  display.drawBitmap(0, 0, image_data_EYES_NIGHTarray, 128, 64, 1);
+  display.display();
 
-  //delay(3500); // Pause for 1.5 seconds
-  //display.clearDisplay();  // Clear the buffer
+  delay(3500); // Pause for 1.5 seconds
+  display.clearDisplay();  // Clear the buffer
 
 // Displays EYES_SLEEP on the screen
   display.drawBitmap(0, 0, image_data_EYES_SLEEParray, 128, 64, 1);
